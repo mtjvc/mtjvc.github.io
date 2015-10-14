@@ -5,21 +5,20 @@ body {
 }
 
 .header {
-  font-family: 'Amatic SC', 'Helvetica Neue', Helvetica;
-  margin-top: -55px;
-  margin-bottom: -45px;
-  margin-left: 20px;
-  color: #240037;
-  font-size: 60px;
-  font-weight: 300;
+    font-family: 'Amatic SC', 'Helvetica Neue', Helvetica;
+    width: 230px;
+    margin: -40px auto;
+    color: #240037;
+    font-size: 60px;
+    font-weight: 300;
 }
 
 .container
 {
-  width: 870px;
-  margin: 0 auto;
-  margin-top: 20px;
-  font-weight: 300;
+    width: 870px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 300;
 }
 
 .center{
@@ -36,7 +35,6 @@ body {
     height: 100px;
 }
 
-
 .leftside {
     height: 400px;
     width: 120px;
@@ -47,6 +45,15 @@ body {
     height: 400px;
     width: 150px;
     float:left;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .block {
@@ -169,3 +176,29 @@ body {
 .Seismic .q22-25{fill:rgb(170,0,0)}
 .Seismic .q23-25{fill:rgb(148,0,0)}
 .Seismic .q24-25{fill:rgb(128,0,0)}
+
+.Gray .q0-25{fill:rgb(0,0,0)}
+.Gray .q1-25{fill:rgb(10,10,10)}
+.Gray .q2-25{fill:rgb(20,20,20)}
+.Gray .q3-25{fill:rgb(30,30,30)}
+.Gray .q4-25{fill:rgb(40,40,40)}
+.Gray .q5-25{fill:rgb(50,50,50)}
+.Gray .q6-25{fill:rgb(60,60,60)}
+.Gray .q7-25{fill:rgb(70,70,70)}
+.Gray .q8-25{fill:rgb(81,81,81)}
+.Gray .q9-25{fill:rgb(91,91,91)}
+.Gray .q10-25{fill:rgb(101,101,101)}
+.Gray .q11-25{fill:rgb(111,111,111)}
+.Gray .q12-25{fill:rgb(121,121,121)}
+.Gray .q13-25{fill:rgb(131,131,131)}
+.Gray .q14-25{fill:rgb(141,141,141)}
+.Gray .q15-25{fill:rgb(152,152,152)}
+.Gray .q16-25{fill:rgb(162,162,162)}
+.Gray .q17-25{fill:rgb(172,172,172)}
+.Gray .q18-25{fill:rgb(182,182,182)}
+.Gray .q19-25{fill:rgb(192,192,192)}
+.Gray .q20-25{fill:rgb(202,202,202)}
+.Gray .q21-25{fill:rgb(212,212,212)}
+.Gray .q22-25{fill:rgb(222,222,222)}
+.Gray .q23-25{fill:rgb(233,233,233)}
+.Gray .q24-25{fill:rgb(243,243,243)}

@@ -13,7 +13,7 @@ var color = d3.scale.quantize()
     .range(d3.range(25).map(function(d) { return "q" + d + "-25"; }));
 
 var csidx = 1
-var cscales = ["Viridis", "RdPu", "Seismic", "Spectral"]
+var cscales = ["Viridis", "RdPu", "Seismic", "Spectral", "Gray"]
 
 var data; // global data variable
 
@@ -47,30 +47,31 @@ svgleft.selectAll("text")
     .style("text-anchor", "middle")
     .text(function(d){ return d; })
 
-var labels = [["Number of obs.", "Nobs", [0, 800], "", 0],
-              ["RA", "RA", [0, 360], "deg", 1],
-              ["DEC", "DEC", [-90, 20], "deg", 2],
-              ["Galactic lon.", "Glon", [0, 360], "deg", 3],
-              ["Galactic lat.", "Glat", [-90, 50], "deg", 4],
-              ["Radial velocity", "HRV", [-50, 50], "km/s", 5],
-              ["Temperature", "Teff", [4000, 6000], "K", 6],
-              ["Gravity", "logg", [1.0, 4.5], "dex", 7],
-              ["Metallicity", "met", [-0.5, 0.0], "dex", 8],
-              ["S/N", "SNR", [10, 80], "", 9],
-              ["DENIS I", "Imag", [8.0, 12.0], "", 10],
-              ["2MASS J", "Jmag", [7.0, 11.0], "", 11],
-              ["2MASS H", "Hmag", [7.0, 11.0], "", 12],
-              ["2MASS K", "Kmag", [7.0, 11.0], "", 13],
-              ["J-K", "J-K", [0.4, 1.0], "", 14],
-              ["Moon phase", "moon", [0.0, 1.0], "", 15]]
+var labels = [["Number of obs.", "Nobs", [0, 800], ""],
+              ["RA", "RA", [0, 360], "deg"],
+              ["DEC", "DEC", [-90, 20], "deg"],
+              ["Galactic lon.", "Glon", [0, 360], "deg"],
+              ["Galactic lat.", "Glat", [-90, 50], "deg"],
+              ["Radial velocity", "HRV", [-40, 60], "km/s"],
+              ["Temperature (M)", "Teff", [4000, 6000], "K"],
+              ["Gravity (M)", "logg", [1.0, 4.5], "dex"],
+              ["Metallicity (M)", "met", [-0.5, 0.0], "dex"],
+              ["S/N (M)", "SNR", [10, 80], ""],
+              ["DENIS I (M)", "Imag", [8.0, 12.0], "mag"],
+              ["2MASS J", "Jmag", [7.0, 11.0], "mag"],
+              ["2MASS H", "Hmag", [7.0, 11.0], "mag"],
+              ["2MASS K", "Kmag", [7.0, 11.0], "mag"],
+              ["J-K", "J-K", [0.4, 1.0], ""],
+              ["Distance", "dist", [0.0, 2.5], "kpc"],
+              ["Moon phase", "moon", [0.0, 1.0], ""]]
 
 svgright.selectAll("text")
     .data(labels)
     .enter()
     .append("text")
-    .attr("class", "title")
+    .attr("class", "noselect")
     .attr("x", 30)
-    .attr("y", function(d, i) { return 40 + i * 17; })
+    .attr("y", function(d, i) { return 60 + i * 17; })
     .text(function(d){ return d[0]; })
 
 svgright.selectAll("circle")
@@ -79,7 +80,7 @@ svgright.selectAll("circle")
     .append("circle")
     .attr("r", 4)
     .attr("transform", function(d, i) {
-        return "translate(" + 20 + ","  + (36 + i * 17) + ")";
+        return "translate(" + 20 + ","  + (56 + i * 17) + ")";
     })
     .style("fill-opacity", 0.1)
     .style("stroke", "#000")
@@ -122,6 +123,7 @@ var rect = svg.selectAll(".day")
     .attr("height", cellSize)
     .attr("y", function (d) { return week(d) * cellSize; })
     .attr("x", function (d) { return day(d) * cellSize; })
+    .on("click", rectclick)
     .datum(format);
 
 rect.append("title")
@@ -183,6 +185,9 @@ var cschange = svgscale.append("text")
     .style("fill", "aaaaaa")
     .style("text-anchor", "middle")
     .text("[Change]")
+    .attr("class", "noselect")
+    .on("mouseout", changeout)
+    .on("mouseover", changeover)
     .on("click", changeclick);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -242,10 +247,34 @@ function mclick(d) {
         .text(function (f) { return f + ": " + data[f][d[1]]; });
 }
 
+function rectclick(d) {
+    var obsdate = d.replace("-", ":").replace("-", ":")
+    var qstr = "http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=III/272/" +
+    "ravedr4&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,Field,Fiber," +
+    "Jmag2,Kmag2,e_Jmag2,e_Kmag2,HRV,TeffK,loggK,c[M/H]K,SNRK,Dist,c1,c2,c3";
+    window.open(qstr, '_blank');
+}
+
 function changeclick(d) {
     csidx = csidx + 1;
     if (csidx > cscales.length - 1) {csidx = 0;}
     console.log(cscales[csidx])
     svgscale.attr("class", cscales[csidx]);
     svg.attr("class", cscales[csidx]);
+}
+
+function changeover(d) {
+    d3.select(this)
+        .transition()
+        .ease("sin")
+    	.duration(20)
+        .style("fill", "#444444");
+}
+
+function changeout(d) {
+    d3.select(this)
+        .transition()
+        .ease("sin")
+    	.duration(20)
+        .style("fill", "#aaaaaa");
 }
