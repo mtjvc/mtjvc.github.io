@@ -4,7 +4,7 @@ from math import radians as rad
 import ephem
 
 
-f = open(rcpath)
+f = open('/Users/gal/research/rave/dr4/ravedr4.dat')
 d = f.readlines()
 f.close()
 rave = [(i[482:490].strip(), float(i[52:64]), float(i[65:77]), float(i[78:87]),
