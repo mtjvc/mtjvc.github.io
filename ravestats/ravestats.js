@@ -1,6 +1,6 @@
 var cellSize = 7, // cell size
     paddingSize = 4,
-    height = 500,
+    height = 400,
     width = cellSize * 7 + (paddingSize * 2);
 
 var day = function(d) { return (d.getDay() + 6) % 7; },
@@ -44,20 +44,22 @@ svgleft.selectAll("text")
     .style("text-anchor", "middle")
     .text(function(d){ return d; })
 
-var labels = [["Number of obs.", "Nobs", [0, 800]], ["R.A.", "RA", [0, 360]],
-              ["DEC", "DEC", [-90, 20]], ["Galactic lon.", "Glon", [0, 360]],
-              ["Galactic lat.", "Glat", [-90, 50]],
-              ["Radial velocity", "HRV", [-50, 50]],
-              ["Temperature", "Teff", [4000, 6000]],
-              ["Gravity", "logg", [1.0, 4.5]],
-              ["Metallicity", "met", [-0.5, 0.0]],
-              ["S/N", "SNR", [10, 80]],
-              ["DENIS I", "Imag", [8.0, 12.0]],
-              ["2MASS J", "Jmag", [7.0, 11.0]],
-              ["2MASS H", "Hmag", [7.0, 11.0]],
-              ["2MASS K", "Kmag", [7.0, 11.0]],
-              ["J-K", "J-K", [0.4, 1.0]],
-              ["Moon phase", "moon", [0.0, 1.0]]]
+var labels = [["Number of obs.", "Nobs", [0, 800], ""],
+              ["RA", "RA", [0, 360], "deg"],
+              ["DEC", "DEC", [-90, 20], "deg"],
+              ["Galactic lon.", "Glon", [0, 360], "deg"],
+              ["Galactic lat.", "Glat", [-90, 50], "deg"],
+              ["Radial velocity", "HRV", [-50, 50], "km/s"],
+              ["Temperature", "Teff", [4000, 6000], "K"],
+              ["Gravity", "logg", [1.0, 4.5], "dex"],
+              ["Metallicity", "met", [-0.5, 0.0], "dex"],
+              ["S/N", "SNR", [10, 80], ""],
+              ["DENIS I", "Imag", [8.0, 12.0], ""],
+              ["2MASS J", "Jmag", [7.0, 11.0], ""],
+              ["2MASS H", "Hmag", [7.0, 11.0], ""],
+              ["2MASS K", "Kmag", [7.0, 11.0], ""],
+              ["J-K", "J-K", [0.4, 1.0], ""],
+              ["Moon phase", "moon", [0.0, 1.0], ""]]
 
 svgright.selectAll("text")
     .data(labels)
@@ -104,7 +106,7 @@ var svg = d3.select(".chart").selectAll("svg")
     .attr("transform", "translate(" + paddingSize + ",15)");
 
 svg.append("text")
-   .attr("transform", "translate(" + (width/2 - 4) + "," + -5 + ")")
+    .attr("transform", "translate(" + (width/2 - 4) + "," + -5 + ")")
     .style("text-anchor", "middle")
     .text(function(d) { return d; });
 
@@ -144,6 +146,34 @@ d3.csv("data.csv", function(error, csvdata) {
         .select("title")
         .text(function (d) { return d + ": " + data[d]["Nobs"]; });
 });
+
+var svgscale = d3.select(".scale")
+    .append("svg")
+    .attr("width", 570)
+    .attr("height", 100)
+    .append("g")
+    .attr("class", "Viridis")
+    .attr("transform", "translate(" + 0 + "," + 0 + ")");
+
+var slableft = svgscale.append("text")
+    .attr("transform", "translate(" + 133 + "," + 34 + ")")
+    .style("text-anchor", "end")
+    .text(0);
+
+var slabright = svgscale.append("text")
+    .attr("transform", "translate(" + 450 + "," + 34 + ")")
+    .style("text-anchor", "start")
+    .text(800);
+
+var scale = svgscale.selectAll(".scale")
+    .data(d3.range(0, 25))
+    .enter().append("rect")
+    .attr("width", 12)
+    .attr("height", 20)
+    .attr("transform", function(d, i) {
+        return "translate(" + (140 + i * 12) + ","  + 20 + ")";
+    })
+    .attr("class", function(d, i) { return "q" + i + "-25"});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -194,6 +224,8 @@ function mclick(d) {
         .style("fill-opacity", 0.8)
 
     color.domain(d[2]);
+    slableft.text(d[2][0] + " " + d[3]);
+    slabright.text(d[2][1] + " " + d[3]);
     rect.filter(function (f) { return f in data; })
         .attr("class", function (f) { return "day " + color(data[f][d[1]]); })
         .select("title")

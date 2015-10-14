@@ -22,11 +22,20 @@ body {
   font-weight: 300;
 }
 
-.chart {
-    height: 500px;
+.center{
+    height: 400px;
     width: 570px;
     float:left;
 }
+
+.chart {
+    height: 400px;
+}
+
+.scale{
+    height: 100px;
+}
+
 
 .leftside {
     height: 400px;
