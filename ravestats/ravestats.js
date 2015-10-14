@@ -12,6 +12,9 @@ var color = d3.scale.quantize()
     .domain([0, 800])
     .range(d3.range(25).map(function(d) { return "q" + d + "-25"; }));
 
+var csidx = 1
+var cscales = ["Viridis", "RdPu", "Seismic", "Spectral"]
+
 var data; // global data variable
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -44,22 +47,22 @@ svgleft.selectAll("text")
     .style("text-anchor", "middle")
     .text(function(d){ return d; })
 
-var labels = [["Number of obs.", "Nobs", [0, 800], ""],
-              ["RA", "RA", [0, 360], "deg"],
-              ["DEC", "DEC", [-90, 20], "deg"],
-              ["Galactic lon.", "Glon", [0, 360], "deg"],
-              ["Galactic lat.", "Glat", [-90, 50], "deg"],
-              ["Radial velocity", "HRV", [-50, 50], "km/s"],
-              ["Temperature", "Teff", [4000, 6000], "K"],
-              ["Gravity", "logg", [1.0, 4.5], "dex"],
-              ["Metallicity", "met", [-0.5, 0.0], "dex"],
-              ["S/N", "SNR", [10, 80], ""],
-              ["DENIS I", "Imag", [8.0, 12.0], ""],
-              ["2MASS J", "Jmag", [7.0, 11.0], ""],
-              ["2MASS H", "Hmag", [7.0, 11.0], ""],
-              ["2MASS K", "Kmag", [7.0, 11.0], ""],
-              ["J-K", "J-K", [0.4, 1.0], ""],
-              ["Moon phase", "moon", [0.0, 1.0], ""]]
+var labels = [["Number of obs.", "Nobs", [0, 800], "", 0],
+              ["RA", "RA", [0, 360], "deg", 1],
+              ["DEC", "DEC", [-90, 20], "deg", 2],
+              ["Galactic lon.", "Glon", [0, 360], "deg", 3],
+              ["Galactic lat.", "Glat", [-90, 50], "deg", 4],
+              ["Radial velocity", "HRV", [-50, 50], "km/s", 5],
+              ["Temperature", "Teff", [4000, 6000], "K", 6],
+              ["Gravity", "logg", [1.0, 4.5], "dex", 7],
+              ["Metallicity", "met", [-0.5, 0.0], "dex", 8],
+              ["S/N", "SNR", [10, 80], "", 9],
+              ["DENIS I", "Imag", [8.0, 12.0], "", 10],
+              ["2MASS J", "Jmag", [7.0, 11.0], "", 11],
+              ["2MASS H", "Hmag", [7.0, 11.0], "", 12],
+              ["2MASS K", "Kmag", [7.0, 11.0], "", 13],
+              ["J-K", "J-K", [0.4, 1.0], "", 14],
+              ["Moon phase", "moon", [0.0, 1.0], "", 15]]
 
 svgright.selectAll("text")
     .data(labels)
@@ -101,7 +104,7 @@ var svg = d3.select(".chart").selectAll("svg")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
-    .attr("class", "Viridis")
+    .attr("class", cscales[csidx])
     .append("g")
     .attr("transform", "translate(" + paddingSize + ",15)");
 
@@ -152,11 +155,11 @@ var svgscale = d3.select(".scale")
     .attr("width", 570)
     .attr("height", 100)
     .append("g")
-    .attr("class", "Viridis")
+    .attr("class", cscales[csidx])
     .attr("transform", "translate(" + 0 + "," + 0 + ")");
 
 var slableft = svgscale.append("text")
-    .attr("transform", "translate(" + 133 + "," + 34 + ")")
+    .attr("transform", "translate(" + 131 + "," + 34 + ")")
     .style("text-anchor", "end")
     .text(0);
 
@@ -174,6 +177,13 @@ var scale = svgscale.selectAll(".scale")
         return "translate(" + (140 + i * 12) + ","  + 20 + ")";
     })
     .attr("class", function(d, i) { return "q" + i + "-25"});
+
+var cschange = svgscale.append("text")
+    .attr("transform", "translate(" + 291 + "," + 54 + ")")
+    .style("fill", "aaaaaa")
+    .style("text-anchor", "middle")
+    .text("[Change]")
+    .on("click", changeclick);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -230,4 +240,12 @@ function mclick(d) {
         .attr("class", function (f) { return "day " + color(data[f][d[1]]); })
         .select("title")
         .text(function (f) { return f + ": " + data[f][d[1]]; });
+}
+
+function changeclick(d) {
+    csidx = csidx + 1;
+    if (csidx > cscales.length - 1) {csidx = 0;}
+    console.log(cscales[csidx])
+    svgscale.attr("class", cscales[csidx]);
+    svg.attr("class", cscales[csidx]);
 }
