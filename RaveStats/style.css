@@ -1,0 +1,136 @@
+body {
+    font: 12px sans-serif;
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    shape-rendering: crispEdges;
+}
+
+.header {
+  font-family: 'Amatic SC', 'Helvetica Neue', Helvetica;
+  margin-top: -55px;
+  margin-bottom: -45px;
+  margin-left: 20px;
+  color: #240037;
+  font-size: 60px;
+  font-weight: 300;
+}
+
+.container
+{
+  width: 870px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.chart {
+    height: 500px;
+    width: 570px;
+    float:left;
+}
+
+.leftside {
+    height: 400px;
+    width: 120px;
+    float:left;
+}
+
+.rightside {
+    height: 400px;
+    width: 150px;
+    float:left;
+}
+
+.block {
+    float: left;
+    margin: 0 0px;
+}
+
+.day {
+    fill: #fcfcfc;
+    stroke: #ccc;
+    stroke-width: 0.5px;
+}
+
+.month {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.RdPu .q0-25{fill:rgb(256,247,243)}
+.RdPu .q1-25{fill:rgb(255,240,237)}
+.RdPu .q2-25{fill:rgb(254,232,229)}
+.RdPu .q3-25{fill:rgb(253,224,221)}
+.RdPu .q4-25{fill:rgb(253,216,212)}
+.RdPu .q5-25{fill:rgb(253,206,202)}
+.RdPu .q6-25{fill:rgb(252,197,192)}
+.RdPu .q7-25{fill:rgb(252,185,189)}
+.RdPu .q8-25{fill:rgb(251,172,185)}
+.RdPu .q9-25{fill:rgb(250,158,181)}
+.RdPu .q10-25{fill:rgb(250,141,175)}
+.RdPu .q11-25{fill:rgb(248,122,168)}
+.RdPu .q12-25{fill:rgb(247,103,161)}
+.RdPu .q13-25{fill:rgb(239,87,158)}
+.RdPu .q14-25{fill:rgb(230,69,154)}
+.RdPu .q15-25{fill:rgb(220,51,151)}
+.RdPu .q16-25{fill:rgb(206,35,143)}
+.RdPu .q17-25{fill:rgb(189,17,134)}
+.RdPu .q18-25{fill:rgb(173,1,126)}
+.RdPu .q19-25{fill:rgb(157,1,124)}
+.RdPu .q20-25{fill:rgb(139,1,121)}
+.RdPu .q21-25{fill:rgb(121,0,119)}
+.RdPu .q22-25{fill:rgb(105,0,115)}
+.RdPu .q23-25{fill:rgb(88,0,110)}
+.RdPu .q24-25{fill:rgb(73,0,106)}
+
+.Spectral .q0-25{fill:rgb(135,0,152)}
+.Spectral .q1-25{fill:rgb(45,0,164)}
+.Spectral .q2-25{fill:rgb(0,0,185)}
+.Spectral .q3-25{fill:rgb(0,0,221)}
+.Spectral .q4-25{fill:rgb(0,74,221)}
+.Spectral .q5-25{fill:rgb(0,130,221)}
+.Spectral .q6-25{fill:rgb(0,152,221)}
+.Spectral .q7-25{fill:rgb(0,164,187)}
+.Spectral .q8-25{fill:rgb(0,170,160)}
+.Spectral .q9-25{fill:rgb(0,170,136)}
+.Spectral .q10-25{fill:rgb(0,159,50)}
+.Spectral .q11-25{fill:rgb(0,164,0)}
+.Spectral .q12-25{fill:rgb(0,189,0)}
+.Spectral .q13-25{fill:rgb(0,210,0)}
+.Spectral .q14-25{fill:rgb(0,234,0)}
+.Spectral .q15-25{fill:rgb(0,256,0)}
+.Spectral .q16-25{fill:rgb(132,256,0)}
+.Spectral .q17-25{fill:rgb(204,250,0)}
+.Spectral .q18-25{fill:rgb(239,237,0)}
+.Spectral .q19-25{fill:rgb(250,216,0)}
+.Spectral .q20-25{fill:rgb(256,185,0)}
+.Spectral .q21-25{fill:rgb(256,153,0)}
+.Spectral .q22-25{fill:rgb(256,45,0)}
+.Spectral .q23-25{fill:rgb(244,0,0)}
+.Spectral .q24-25{fill:rgb(221,0,0)}
+
+.Viridis .q0-25{fill:rgb(68,1,84)}
+.Viridis .q1-25{fill:rgb(71,15,98)}
+.Viridis .q2-25{fill:rgb(72,30,112)}
+.Viridis .q3-25{fill:rgb(71,44,123)}
+.Viridis .q4-25{fill:rgb(68,57,131)}
+.Viridis .q5-25{fill:rgb(64,70,136)}
+.Viridis .q6-25{fill:rgb(58,82,139)}
+.Viridis .q7-25{fill:rgb(53,93,141)}
+.Viridis .q8-25{fill:rgb(48,104,142)}
+.Viridis .q9-25{fill:rgb(44,114,142)}
+.Viridis .q10-25{fill:rgb(40,124,142)}
+.Viridis .q11-25{fill:rgb(36,134,142)}
+.Viridis .q12-25{fill:rgb(32,145,140)}
+.Viridis .q13-25{fill:rgb(30,154,138)}
+.Viridis .q14-25{fill:rgb(32,164,134)}
+.Viridis .q15-25{fill:rgb(40,175,128)}
+.Viridis .q16-25{fill:rgb(53,183,121)}
+.Viridis .q17-25{fill:rgb(72,193,110)}
+.Viridis .q18-25{fill:rgb(94,201,98)}
+.Viridis .q19-25{fill:rgb(117,208,84)}
+.Viridis .q20-25{fill:rgb(144,215,67)}
+.Viridis .q21-25{fill:rgb(173,221,48)}
+.Viridis .q22-25{fill:rgb(200,225,32)}
+.Viridis .q23-25{fill:rgb(229,228,24)}
+.Viridis .q24-25{fill:rgb(254,231,36)}
