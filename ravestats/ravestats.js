@@ -47,7 +47,7 @@ svgleft.selectAll("text")
     .style("text-anchor", "middle")
     .text(function(d){ return d; })
 
-var labels = [["Number of obs.", "Nobs", [0, 800, 100], "bla"],
+var labels = [["Number of obs.", "Nobs", [0, 800, 100], ""],
               ["RA", "RA", [0, 360, 40], "deg"],
               ["DEC", "DEC", [-90, 20, 10], "deg"],
               ["Galactic lon.", "Glon", [0, 360, 40], "deg"],
