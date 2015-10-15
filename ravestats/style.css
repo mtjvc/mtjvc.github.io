@@ -96,7 +96,7 @@ body {
     margin-top: 18px;
 }
 
-#footerdescription{
+#footerdescription {
     font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
     font-size: 10px;
     text-align: justify;
@@ -108,6 +108,15 @@ body {
     margin-top: 10px;
 }
 
+a {
+    color: "#cccccc";
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: "#aa0000";
+}
 
 .noselect {
   -webkit-touch-callout: none;
