@@ -310,7 +310,7 @@ function rectclick(d) {
     "ravedr4&-out.max=9999&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,+" +
     "Field,Fiber,Jmag2,Kmag2,e_Jmag2,e_Kmag2,HRV,TeffK,loggK,c[M/H]K,SNRK," +
     "Dist,c1,c2,c3";
-    window.open(qstr, '_blank');
+    window.open(qstr, '_new');
 }
 
 function changeclick(d) {
