@@ -297,7 +297,7 @@ function mclick(d) {
 function rectclick(d) {
     var obsdate = d.replace("-", ":").replace("-", ":")
     var qstr = "http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=III/272/" +
-    "ravedr4&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,Field,Fiber," +
+    "ravedr4&-out.max=9999&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,Field,Fiber," +
     "Jmag2,Kmag2,e_Jmag2,e_Kmag2,HRV,TeffK,loggK,c[M/H]K,SNRK,Dist,c1,c2,c3";
     window.open(qstr, '_blank');
 }
