@@ -56,15 +56,20 @@ body {
     display: none;
 }
 
+/*Chrome hack*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ .footer{height: 120px;}
+}
+
 .footercenter {
-    width: 800px;
+    width: 780px;
     height: 70px;
     margin: 0 auto;
     background-color: #eeeeee;
 }
 
 .footerleft{
-    height: 70px;
+    height: 60px;
     width: 120px;
     float:left;
 }
@@ -75,13 +80,13 @@ body {
     float:left;
 }
 
-#footertitle {
-    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
-    font-size: 16px;
-    color: #666666;
-    margin-left: 20px;
-    margin-top: 34px;
-}
+/*#footertitle {*/
+    /*font-family: 'Istok Web', 'Helvetica Neue', Helvetica;*/
+    /*font-size: 26px;*/
+    /*color: #666666;*/
+    /*margin-left: 20px;*/
+    /*margin-top: 34px;*/
+/*}*/
 
 #footercredits {
     font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
@@ -98,20 +103,20 @@ body {
     text-align: justify;
     color: #444444;
     height: 70px;
-    width: 500px;
+    width: 510px;
     float:left;
     margin-left: 20px;
     margin-top: 10px;
 }
 
-a {
-    color: "#cccccc";
+a:link {
     text-decoration: none;
     font-weight: bold;
+    color: #c00;
 }
 
 a:visited {
-    color: "#aa0000";
+    color: #aa0000;
 }
 
 .showfooter {
@@ -119,15 +124,37 @@ a:visited {
     top: 100%;
     left: 50%;
     margin-top: -40px;
-    margin-left: -76px;
+    margin-left: -57px;
     color: #cccccc;
 }
 
-.showfooter .p {
+button {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     color: #cccccc;
+     cursor: pointer;
+}
+
+.help {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
+}
+
+.help p {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.help .down {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #aaa;
 }
 
 .noselect {

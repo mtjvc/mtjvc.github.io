@@ -28,13 +28,21 @@
     </div>
 
     <div class="showfooter">
-        <p class="showfooter p">aa&#xE316;</p><br>
-        Scroll up to show help
+        <button type="button" class="help">
+            &#xE316;
+            <p>What is this?</p>
+        </button>
     </div>
 
     <div class="footer">
         <div class="footercenter">
-            <div class="footerleft"><p id="footertitle">What is this?</p></div>
+            <div class="footerleft">
+                <!-- <p id="footertitle">What is this?</p> -->
+                <button type="button" class="help">
+                    &#xE313;<br>
+                    <p class="down">What is this?</p>
+                </button>
+            </div>
             <div id="footerdescription">
                 Diagram shows daily statistics of
                 <a href="https://www.rave-survey.org/">RAVE survey</a>
@@ -62,13 +70,13 @@
         var up = false;
         var newscroll;
 
-        win.scroll(function (d) {
-            newscroll = win.scrollTop();
-            if (newscroll > pos && !up) {
+        $('.help').click(function(e){
+            console.log(up)
+            if (!up) {
                 $('.footer').stop().slideToggle();
                 up = !up;
             }
-            else if(newscroll < pos && up) {
+            else {
                 $('.footer').stop().slideToggle();
                 up = !up;
             }
