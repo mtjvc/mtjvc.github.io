@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    width: 870px;
+    width: 840px;
     margin: 0 auto;
     margin-top: 20px;
     font-weight: 300;
@@ -57,9 +57,9 @@ body {
 }
 
 /*Chrome hack*/
-@media screen and (-webkit-min-device-pixel-ratio:0) {
- .footer{height: 120px;}
-}
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {*/
+ /*.footer{height: 120px;}*/
+/*}*/
 
 .footercenter {
     width: 780px;
@@ -124,8 +124,8 @@ a:visited {
     top: 100%;
     left: 50%;
     margin-top: -40px;
-    margin-left: -57px;
-    color: #cccccc;
+    margin-left: -45px;
+    color: #666;
 }
 
 button {
@@ -133,7 +133,7 @@ button {
      border:none;
      padding:0!important;
      font: inherit;
-     color: #cccccc;
+     color: #666;
      cursor: pointer;
 }
 
@@ -154,16 +154,17 @@ button {
     font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
     font-size: 16px;
     margin-top: 10px;
-    color: #aaa;
+    color: #666;
 }
 
 .noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     cursor: pointer;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
 }
 
 .block {

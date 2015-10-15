@@ -206,12 +206,10 @@ var scaleUnits= svgscale.append("text")
 
 var cschange = svgscale.append("text")
     .attr("transform", "translate(" + 291 + "," + 54 + ")")
-    .style("fill", "aaaaaa")
+    .style("fill", "#666666")
     .style("text-anchor", "middle")
     .text("[Change]")
     .attr("class", "noselect")
-    .on("mouseout", changeout)
-    .on("mouseover", changeover)
     .on("click", changeclick);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -321,20 +319,4 @@ function changeclick(d) {
     console.log(cscales[csidx])
     svgscale.attr("class", cscales[csidx]);
     svg.attr("class", cscales[csidx]);
-}
-
-function changeover(d) {
-    d3.select(this)
-        .transition()
-        .ease("sin")
-    	.duration(20)
-        .style("fill", "#444444");
-}
-
-function changeout(d) {
-    d3.select(this)
-        .transition()
-        .ease("sin")
-    	.duration(20)
-        .style("fill", "#aaaaaa");
 }
