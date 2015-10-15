@@ -11,10 +11,10 @@
 
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
 	<body>
 
     <div class="header">
-        <!-- <p>[rave<b><font color="#49006A">S</font><font color="#7A0177">t</font><font color="#AE017E">a</font><font color="#DD3497">t</font><font color="#F768A1">s]</p> -->
         <p class="noselect">[raveStats]</p>
 	</div>
 
@@ -26,20 +26,54 @@
         </div>
         <div class="rightside"></div>
     </div>
+
+    <div class="showfooter">
+        <p class="showfooter p">aa&#xE316;</p><br>
+        Scroll up to show help
+    </div>
+
     <div class="footer">
         <div class="footercenter">
             <div class="footerleft"><p id="footertitle">What is this?</p></div>
             <div id="footerdescription">
-                Diagram shows daily statistics of <a href="https://www.rave-survey.org/">RAVE survey</a> observations collected
-                from the publicly available <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=III/272/ravedr4&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa">Data Release 4</a>.
+                Diagram shows daily statistics of
+                <a href="https://www.rave-survey.org/">RAVE survey</a>
+                observations collected from the publicly available
+                <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=III/272/ravedr4&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa">Data Release 4</a>.
                 Each column represents a single year, each box a single day.
-                Colors correspond to the values of the parameters listed on the right.
-                Whenever applicable, averages or medians (M) of indiviual measurement are shown.
+                Colors correspond to the values of the parameters listed on the
+                right. Whenever applicable, averages or medians (indicated by
+                M) of indiviual measurement are shown. For example, it's easy
+                to see how the radial velocity varies on a monthly basis and
+                that mostly brighter stars were observed in 2008. Clicking
+                on a box will display its contents.
             </div>
-            <div class="footerleft"><p id="footercredits">Created by<br>Gal Matijevic@AIP</p></div>
+            <div class="footerleft">
+                <p id="footercredits">Created by<br>Gal Matijevic@AIP</p>
+            </div>
         </div>
     </div>
 
 	<script type="text/javascript" src="ravestats.js"></script>
+
+    <script>
+        var win = $(window);
+        var pos = win.scrollTop();
+        var up = false;
+        var newscroll;
+
+        win.scroll(function (d) {
+            newscroll = win.scrollTop();
+            if (newscroll > pos && !up) {
+                $('.footer').stop().slideToggle();
+                up = !up;
+            }
+            else if(newscroll < pos && up) {
+                $('.footer').stop().slideToggle();
+                up = !up;
+            }
+        });
+    </script>
+
 	</body>
 </html>

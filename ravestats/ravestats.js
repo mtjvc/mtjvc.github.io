@@ -176,9 +176,13 @@ var scale = svgscale.selectAll(".scale")
 var scaleTicks = svgscale.selectAll(".scale")
     .data(d3.range(labels[0][2][0], labels[0][2][1] + 0.0001, labels[0][2][2]))
     .enter().append("line")
-    .attr("x1", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("x1", function(d) {
+        return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298
+    })
     .attr("y1", 12)
-    .attr("x2", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("x2", function(d) {
+        return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298
+    })
     .attr("y2", 18)
     .attr("stroke-width", 1)
     .attr("stroke", "black")
@@ -187,7 +191,9 @@ var scaleTicks = svgscale.selectAll(".scale")
 var scaleTicklabels = svgscale.selectAll(".scale")
     .data(d3.range(labels[0][2][0], labels[0][2][1] + 0.0001, labels[0][2][2]))
     .enter().append("text")
-    .attr("x", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("x", function(d) {
+        return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298
+    })
     .attr("y", 10)
     .attr("class", "scaleTicklabels")
     .style("text-anchor", "middle")
@@ -271,9 +277,13 @@ function mclick(d) {
     var scaleTicks = svgscale.selectAll(".scale")
         .data(lrange)
         .enter().append("line")
-        .attr("x1", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("x1", function(f) {
+            return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298
+        })
         .attr("y1", 12)
-        .attr("x2", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("x2", function(f) {
+            return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298
+        })
         .attr("y2", 18)
         .attr("stroke-width", 1)
         .attr("stroke", "black")
@@ -282,7 +292,9 @@ function mclick(d) {
     var scaleTicklabels = svgscale.selectAll(".scale")
         .data(lrange)
         .enter().append("text")
-        .attr("x", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("x", function(f) {
+            return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298
+        })
         .attr("y", 10)
         .attr("class", "scaleTicklabels")
         .style("text-anchor", "middle")
@@ -297,8 +309,9 @@ function mclick(d) {
 function rectclick(d) {
     var obsdate = d.replace("-", ":").replace("-", ":")
     var qstr = "http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=III/272/" +
-    "ravedr4&-out.max=9999&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,Field,Fiber," +
-    "Jmag2,Kmag2,e_Jmag2,e_Kmag2,HRV,TeffK,loggK,c[M/H]K,SNRK,Dist,c1,c2,c3";
+    "ravedr4&-out.max=9999&Obsdate=" + obsdate + "&-out=Name,RAVE,Obsdate,+" +
+    "Field,Fiber,Jmag2,Kmag2,e_Jmag2,e_Kmag2,HRV,TeffK,loggK,c[M/H]K,SNRK," +
+    "Dist,c1,c2,c3";
     window.open(qstr, '_blank');
 }
 
