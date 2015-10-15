@@ -47,23 +47,23 @@ svgleft.selectAll("text")
     .style("text-anchor", "middle")
     .text(function(d){ return d; })
 
-var labels = [["Number of obs.", "Nobs", [0, 800], ""],
-              ["RA", "RA", [0, 360], "deg"],
-              ["DEC", "DEC", [-90, 20], "deg"],
-              ["Galactic lon.", "Glon", [0, 360], "deg"],
-              ["Galactic lat.", "Glat", [-90, 50], "deg"],
-              ["Radial velocity", "HRV", [-40, 60], "km/s"],
-              ["Temperature (M)", "Teff", [4000, 6000], "K"],
-              ["Gravity (M)", "logg", [1.0, 4.5], "dex"],
-              ["Metallicity (M)", "met", [-0.5, 0.0], "dex"],
-              ["S/N (M)", "SNR", [10, 80], ""],
-              ["DENIS I (M)", "Imag", [8.0, 12.0], "mag"],
-              ["2MASS J", "Jmag", [7.0, 11.0], "mag"],
-              ["2MASS H", "Hmag", [7.0, 11.0], "mag"],
-              ["2MASS K", "Kmag", [7.0, 11.0], "mag"],
-              ["J-K", "J-K", [0.4, 1.0], ""],
-              ["Distance", "dist", [0.0, 2.5], "kpc"],
-              ["Moon phase", "moon", [0.0, 1.0], ""]]
+var labels = [["Number of obs.", "Nobs", [0, 800, 100], "bla"],
+              ["RA", "RA", [0, 360, 40], "deg"],
+              ["DEC", "DEC", [-90, 20, 10], "deg"],
+              ["Galactic lon.", "Glon", [0, 360, 40], "deg"],
+              ["Galactic lat.", "Glat", [-90, 50, 10], "deg"],
+              ["Radial velocity", "HRV", [-40, 60, 10], "km/s"],
+              ["Temperature (M)", "Teff", [4000, 6000, 250], "K"],
+              ["Gravity (M)", "logg", [1.0, 4.5, 0.5], "dex"],
+              ["Metallicity (M)", "met", [-0.5, 0.0, 0.05], "dex"],
+              ["S/N (M)", "SNR", [10, 80, 10], ""],
+              ["DENIS I (M)", "Imag", [8.0, 12.0, 0.5], "mag"],
+              ["2MASS J", "Jmag", [7.0, 11.0, 0.5], "mag"],
+              ["2MASS H", "Hmag", [7.0, 11.0, 0.5], "mag"],
+              ["2MASS K", "Kmag", [7.0, 11.0, 0.5], "mag"],
+              ["J-K", "J-K", [0.4, 1.0, 0.1], ""],
+              ["Distance", "dist", [0.0, 2.5, 0.25], "kpc"],
+              ["Moon phase", "moon", [0.0, 1.0, 0.1], ""]]
 
 svgright.selectAll("text")
     .data(labels)
@@ -152,6 +152,9 @@ d3.csv("data.csv", function(error, csvdata) {
         .text(function (d) { return d + ": " + data[d]["Nobs"]; });
 });
 
+///////////////////////////////////////////////////////////////////////////////
+// Scale
+
 var svgscale = d3.select(".scale")
     .append("svg")
     .attr("width", 570)
@@ -159,16 +162,6 @@ var svgscale = d3.select(".scale")
     .append("g")
     .attr("class", cscales[csidx])
     .attr("transform", "translate(" + 0 + "," + 0 + ")");
-
-var slableft = svgscale.append("text")
-    .attr("transform", "translate(" + 131 + "," + 34 + ")")
-    .style("text-anchor", "end")
-    .text(0);
-
-var slabright = svgscale.append("text")
-    .attr("transform", "translate(" + 450 + "," + 34 + ")")
-    .style("text-anchor", "start")
-    .text(800);
 
 var scale = svgscale.selectAll(".scale")
     .data(d3.range(0, 25))
@@ -179,6 +172,31 @@ var scale = svgscale.selectAll(".scale")
         return "translate(" + (140 + i * 12) + ","  + 20 + ")";
     })
     .attr("class", function(d, i) { return "q" + i + "-25"});
+
+var scaleTicks = svgscale.selectAll(".scale")
+    .data(d3.range(labels[0][2][0], labels[0][2][1] + 0.0001, labels[0][2][2]))
+    .enter().append("line")
+    .attr("x1", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("y1", 12)
+    .attr("x2", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("y2", 18)
+    .attr("stroke-width", 1)
+    .attr("stroke", "black")
+    .attr("class", "scaleTicks");
+
+var scaleTicklabels = svgscale.selectAll(".scale")
+    .data(d3.range(labels[0][2][0], labels[0][2][1] + 0.0001, labels[0][2][2]))
+    .enter().append("text")
+    .attr("x", function(d) { return 141 + d / (labels[0][2][1] - labels[0][2][0]) * 298})
+    .attr("y", 10)
+    .attr("class", "scaleTicklabels")
+    .style("text-anchor", "middle")
+    .text(function(d) { return d });
+
+var scaleUnits= svgscale.append("text")
+    .attr("transform", "translate(" + 460 + "," + 10 + ")")
+    .style("text-anchor", "start")
+    .text("");
 
 var cschange = svgscale.append("text")
     .attr("transform", "translate(" + 291 + "," + 54 + ")")
@@ -238,9 +256,38 @@ function mclick(d) {
     	.duration(20)
         .style("fill-opacity", 0.8)
 
-    color.domain(d[2]);
-    slableft.text(d[2][0] + " " + d[3]);
-    slabright.text(d[2][1] + " " + d[3]);
+    color.domain([d[2][0], d[2][1]]);
+
+    // slableft.text(d[2][0] + " " + d[3]);
+    // slabright.text(d[2][1] + " " + d[3]);
+    // console.log(d[2][2])
+
+    svgscale.selectAll(".scaleTicks").remove();
+    svgscale.selectAll(".scaleTicklabels").remove();
+    scaleUnits.text(d[3]);
+
+    lrange = d3.range(d[2][0], d[2][1] + 0.0001, d[2][2])
+
+    var scaleTicks = svgscale.selectAll(".scale")
+        .data(lrange)
+        .enter().append("line")
+        .attr("x1", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("y1", 12)
+        .attr("x2", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("y2", 18)
+        .attr("stroke-width", 1)
+        .attr("stroke", "black")
+        .attr("class", "scaleTicks");
+
+    var scaleTicklabels = svgscale.selectAll(".scale")
+        .data(lrange)
+        .enter().append("text")
+        .attr("x", function(f) { return 141 + (f - d[2][0]) / (d[2][1] - d[2][0]) * 298})
+        .attr("y", 10)
+        .attr("class", "scaleTicklabels")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d });
+
     rect.filter(function (f) { return f in data; })
         .attr("class", function (f) { return "day " + color(data[f][d[1]]); })
         .select("title")
