@@ -1,0 +1,315 @@
+body {
+    font: 12px sans-serif;
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    shape-rendering: crispEdges;
+}
+
+.header {
+    font-family: 'Amatic SC', 'Helvetica Neue', Helvetica;
+    width: 230px;
+    margin: -40px auto;
+    color: #240037;
+    font-size: 60px;
+    font-weight: 300;
+}
+
+.container {
+    width: 840px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.center {
+    height: 400px;
+    width: 570px;
+    float: left;
+}
+
+.chart {
+    height: 400px;
+}
+
+.scale {
+    height: 100px;
+}
+
+.leftside {
+    height: 400px;
+    width: 120px;
+    float: left;
+}
+
+.rightside {
+    height: 400px;
+    width: 150px;
+    float: left;
+}
+
+.footer {
+    background-color: #eee;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 95px;
+    margin-left: -10px;
+    display: none;
+}
+
+/*Chrome hack*/
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {*/
+ /*.footer{height: 120px;}*/
+/*}*/
+
+.footercenter {
+    width: 780px;
+    height: 70px;
+    margin: 0 auto;
+    background-color: #eeeeee;
+}
+
+.footerleft{
+    height: 60px;
+    width: 120px;
+    float:left;
+}
+
+.footerright{
+    height: 70px;
+    width: 100px;
+    float:left;
+}
+
+/*#footertitle {*/
+    /*font-family: 'Istok Web', 'Helvetica Neue', Helvetica;*/
+    /*font-size: 26px;*/
+    /*color: #666666;*/
+    /*margin-left: 20px;*/
+    /*margin-top: 34px;*/
+/*}*/
+
+#footercredits {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 10px;
+    text-align: center;
+    color: #bbbbbb;
+    margin-left: 20px;
+    margin-top: 32px;
+}
+
+#footerdescription {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 10px;
+    text-align: justify;
+    color: #444444;
+    height: 70px;
+    width: 510px;
+    float:left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #c00;
+}
+
+a:visited {
+    color: #aa0000;
+}
+
+.showfooter {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -45px;
+    color: #666;
+}
+
+button {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     color: #666;
+     cursor: pointer;
+}
+
+.help {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.help p {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.help .down {
+    font-family: 'Istok Web', 'Helvetica Neue', Helvetica;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.noselect {
+     cursor: pointer;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+}
+
+.block {
+    float: left;
+    margin: 0 0px;
+}
+
+.day {
+    fill: #f4fafd;
+    stroke: #ccc;
+    stroke-width: 0.5px;
+}
+
+.month {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.RdPu .q0-25{fill:rgb(256,247,243)}
+.RdPu .q1-25{fill:rgb(255,240,237)}
+.RdPu .q2-25{fill:rgb(254,232,229)}
+.RdPu .q3-25{fill:rgb(253,224,221)}
+.RdPu .q4-25{fill:rgb(253,216,212)}
+.RdPu .q5-25{fill:rgb(253,206,202)}
+.RdPu .q6-25{fill:rgb(252,197,192)}
+.RdPu .q7-25{fill:rgb(252,185,189)}
+.RdPu .q8-25{fill:rgb(251,172,185)}
+.RdPu .q9-25{fill:rgb(250,158,181)}
+.RdPu .q10-25{fill:rgb(250,141,175)}
+.RdPu .q11-25{fill:rgb(248,122,168)}
+.RdPu .q12-25{fill:rgb(247,103,161)}
+.RdPu .q13-25{fill:rgb(239,87,158)}
+.RdPu .q14-25{fill:rgb(230,69,154)}
+.RdPu .q15-25{fill:rgb(220,51,151)}
+.RdPu .q16-25{fill:rgb(206,35,143)}
+.RdPu .q17-25{fill:rgb(189,17,134)}
+.RdPu .q18-25{fill:rgb(173,1,126)}
+.RdPu .q19-25{fill:rgb(157,1,124)}
+.RdPu .q20-25{fill:rgb(139,1,121)}
+.RdPu .q21-25{fill:rgb(121,0,119)}
+.RdPu .q22-25{fill:rgb(105,0,115)}
+.RdPu .q23-25{fill:rgb(88,0,110)}
+.RdPu .q24-25{fill:rgb(73,0,106)}
+
+.Spectral .q0-25{fill:rgb(135,0,152)}
+.Spectral .q1-25{fill:rgb(45,0,164)}
+.Spectral .q2-25{fill:rgb(0,0,185)}
+.Spectral .q3-25{fill:rgb(0,0,221)}
+.Spectral .q4-25{fill:rgb(0,74,221)}
+.Spectral .q5-25{fill:rgb(0,130,221)}
+.Spectral .q6-25{fill:rgb(0,152,221)}
+.Spectral .q7-25{fill:rgb(0,164,187)}
+.Spectral .q8-25{fill:rgb(0,170,160)}
+.Spectral .q9-25{fill:rgb(0,170,136)}
+.Spectral .q10-25{fill:rgb(0,159,50)}
+.Spectral .q11-25{fill:rgb(0,164,0)}
+.Spectral .q12-25{fill:rgb(0,189,0)}
+.Spectral .q13-25{fill:rgb(0,210,0)}
+.Spectral .q14-25{fill:rgb(0,234,0)}
+.Spectral .q15-25{fill:rgb(0,256,0)}
+.Spectral .q16-25{fill:rgb(132,256,0)}
+.Spectral .q17-25{fill:rgb(204,250,0)}
+.Spectral .q18-25{fill:rgb(239,237,0)}
+.Spectral .q19-25{fill:rgb(250,216,0)}
+.Spectral .q20-25{fill:rgb(256,185,0)}
+.Spectral .q21-25{fill:rgb(256,153,0)}
+.Spectral .q22-25{fill:rgb(256,45,0)}
+.Spectral .q23-25{fill:rgb(244,0,0)}
+.Spectral .q24-25{fill:rgb(221,0,0)}
+
+.Viridis .q0-25{fill:rgb(68,1,84)}
+.Viridis .q1-25{fill:rgb(71,15,98)}
+.Viridis .q2-25{fill:rgb(72,30,112)}
+.Viridis .q3-25{fill:rgb(71,44,123)}
+.Viridis .q4-25{fill:rgb(68,57,131)}
+.Viridis .q5-25{fill:rgb(64,70,136)}
+.Viridis .q6-25{fill:rgb(58,82,139)}
+.Viridis .q7-25{fill:rgb(53,93,141)}
+.Viridis .q8-25{fill:rgb(48,104,142)}
+.Viridis .q9-25{fill:rgb(44,114,142)}
+.Viridis .q10-25{fill:rgb(40,124,142)}
+.Viridis .q11-25{fill:rgb(36,134,142)}
+.Viridis .q12-25{fill:rgb(32,145,140)}
+.Viridis .q13-25{fill:rgb(30,154,138)}
+.Viridis .q14-25{fill:rgb(32,164,134)}
+.Viridis .q15-25{fill:rgb(40,175,128)}
+.Viridis .q16-25{fill:rgb(53,183,121)}
+.Viridis .q17-25{fill:rgb(72,193,110)}
+.Viridis .q18-25{fill:rgb(94,201,98)}
+.Viridis .q19-25{fill:rgb(117,208,84)}
+.Viridis .q20-25{fill:rgb(144,215,67)}
+.Viridis .q21-25{fill:rgb(173,221,48)}
+.Viridis .q22-25{fill:rgb(200,225,32)}
+.Viridis .q23-25{fill:rgb(229,228,24)}
+.Viridis .q24-25{fill:rgb(254,231,36)}
+
+.Seismic .q0-25{fill:rgb(0,0,76)}
+.Seismic .q1-25{fill:rgb(0,0,104)}
+.Seismic .q2-25{fill:rgb(0,0,135)}
+.Seismic .q3-25{fill:rgb(0,0,166)}
+.Seismic .q4-25{fill:rgb(0,0,194)}
+.Seismic .q5-25{fill:rgb(0,0,225)}
+.Seismic .q6-25{fill:rgb(1,1,256)}
+.Seismic .q7-25{fill:rgb(41,41,256)}
+.Seismic .q8-25{fill:rgb(85,85,256)}
+.Seismic .q9-25{fill:rgb(129,129,256)}
+.Seismic .q10-25{fill:rgb(169,169,256)}
+.Seismic .q11-25{fill:rgb(213,213,256)}
+.Seismic .q12-25{fill:rgb(256,253,253)}
+.Seismic .q13-25{fill:rgb(256,213,213)}
+.Seismic .q14-25{fill:rgb(256,169,169)}
+.Seismic .q15-25{fill:rgb(256,125,125)}
+.Seismic .q16-25{fill:rgb(256,85,85)}
+.Seismic .q17-25{fill:rgb(256,41,41)}
+.Seismic .q18-25{fill:rgb(254,0,0)}
+.Seismic .q19-25{fill:rgb(234,0,0)}
+.Seismic .q20-25{fill:rgb(212,0,0)}
+.Seismic .q21-25{fill:rgb(190,0,0)}
+.Seismic .q22-25{fill:rgb(170,0,0)}
+.Seismic .q23-25{fill:rgb(148,0,0)}
+.Seismic .q24-25{fill:rgb(128,0,0)}
+
+.Gray .q0-25{fill:rgb(0,0,0)}
+.Gray .q1-25{fill:rgb(10,10,10)}
+.Gray .q2-25{fill:rgb(20,20,20)}
+.Gray .q3-25{fill:rgb(30,30,30)}
+.Gray .q4-25{fill:rgb(40,40,40)}
+.Gray .q5-25{fill:rgb(50,50,50)}
+.Gray .q6-25{fill:rgb(60,60,60)}
+.Gray .q7-25{fill:rgb(70,70,70)}
+.Gray .q8-25{fill:rgb(81,81,81)}
+.Gray .q9-25{fill:rgb(91,91,91)}
+.Gray .q10-25{fill:rgb(101,101,101)}
+.Gray .q11-25{fill:rgb(111,111,111)}
+.Gray .q12-25{fill:rgb(121,121,121)}
+.Gray .q13-25{fill:rgb(131,131,131)}
+.Gray .q14-25{fill:rgb(141,141,141)}
+.Gray .q15-25{fill:rgb(152,152,152)}
+.Gray .q16-25{fill:rgb(162,162,162)}
+.Gray .q17-25{fill:rgb(172,172,172)}
+.Gray .q18-25{fill:rgb(182,182,182)}
+.Gray .q19-25{fill:rgb(192,192,192)}
+.Gray .q20-25{fill:rgb(202,202,202)}
+.Gray .q21-25{fill:rgb(212,212,212)}
+.Gray .q22-25{fill:rgb(222,222,222)}
+.Gray .q23-25{fill:rgb(233,233,233)}
+.Gray .q24-25{fill:rgb(243,243,243)}

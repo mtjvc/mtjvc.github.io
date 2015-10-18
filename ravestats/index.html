@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>RAVEStats</title>
+
+    <link type="text/css" href="style.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+	<body>
+
+    <div class="header">
+        <p class="noselect">[raveStats]</p>
+	</div>
+
+    <div class="container">
+        <div class="leftside"></div>
+        <div class="center">
+            <div class="chart"></div>
+            <div class="scale"></div>
+        </div>
+        <div class="rightside"></div>
+    </div>
+
+    <div class="showfooter">
+        <button type="button" class="help">
+            &#xE316;
+            <p>What is this?</p>
+        </button>
+    </div>
+
+    <div class="footer">
+        <div class="footercenter">
+            <div class="footerleft">
+                <!-- <p id="footertitle">What is this?</p> -->
+                <button type="button" class="help">
+                    &#xE313;<br>
+                    <p class="down">What is this?</p>
+                </button>
+            </div>
+            <div id="footerdescription">
+                Diagram shows daily statistics of
+                <a href="https://www.rave-survey.org/">RAVE survey</a>
+                observations collected from the publicly available
+                <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=III/272/ravedr4&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa">Data Release 4</a>.
+                Each column represents a single year, each box a single day.
+                Colors correspond to the values of the parameters listed on the
+                right. Whenever applicable, averages or medians (indicated by
+                M) of individual measurements are shown. It's easy
+                to see how the radial velocity varies on a monthly basis and
+                that mostly brighter stars were observed in 2008. Hovering over
+                the box shows the parameter value and clicking
+                on it will display its contents.
+            </div>
+            <div class="footerleft">
+                <p id="footercredits">Created by<br>Gal Matijevic@AIP</p>
+            </div>
+        </div>
+    </div>
+
+	<script type="text/javascript" src="ravestats.js"></script>
+
+    <script>
+        var win = $(window);
+        var pos = win.scrollTop();
+        var up = false;
+        var newscroll;
+
+        $('.help').click(function(e){
+            console.log(up)
+            if (!up) {
+                $('.footer').stop().slideToggle();
+                up = !up;
+            }
+            else {
+                $('.footer').stop().slideToggle();
+                up = !up;
+            }
+        });
+    </script>
+
+	</body>
+</html>
